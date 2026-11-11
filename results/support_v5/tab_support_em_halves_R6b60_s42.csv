@@ -1,0 +1,10 @@
+condition,auc_mean,auc_sd,n_reps,n_trials,problem,descriptor,control
+observed,0.7729896496815286,0.0,1,448,em_halves,aoi_support,support
+order,0.7729896496815286,0.0,6,448,em_halves,aoi_support,support
+duration_coupling,0.7750464437367305,0.0011786846067517278,6,448,em_halves,aoi_support,support
+duration_marginal,0.7739516985138004,0.0022428241729724754,6,448,em_halves,aoi_support,support
+rotation,0.7185675424628449,0.01444018972266318,6,448,em_halves,aoi_support,support
+resolution(s=9.25),0.7250199044585987,0.012323898223888258,6,448,em_halves,aoi_support,support
+resolution(s=18.5),0.6611597664543525,0.010094458737415,6,448,em_halves,aoi_support,support
+resolution(s=37),0.6542595541401274,0.012244397216492979,6,448,em_halves,aoi_support,support
+resolution(s=74),0.6500132696390658,0.010854532311684869,6,448,em_halves,aoi_support,support

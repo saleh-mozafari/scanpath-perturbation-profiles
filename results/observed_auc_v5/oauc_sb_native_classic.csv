@@ -1,0 +1,2 @@
+problem,descriptor,auc,ci_lo,ci_hi,p_perm,p_lower,perm_mean,perm_sd,n_boot,n_perm,n_trials,cv_folds,metric,stratify,perm_scheme
+sb_native,classic,0.6888762898287788,0.5058923956035741,0.7758661739284979,0.000999000999000999,1.0,0.5011423187602155,0.08320764185626735,200,1000,2046,10,fold,True,participant labels shuffled across participants

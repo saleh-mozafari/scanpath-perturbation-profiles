@@ -1,0 +1,11 @@
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{4.1cm}}
+\toprule
+Problems & Label assigned to & Unit permuted & Block & Preserved under the null \\
+\midrule
+\texttt{gb\_tex\_vd1}, \texttt{gb\_vd1\_blg}, \texttt{gb\_vd1\_vd2}, \texttt{gb\_tex\_s1s2}, \texttt{em\_program} & trial (task, stimulus or session) & trial & participant & each participant's label counts; participant clustering \\
+\texttt{gb\_vd1\_halves}, \texttt{em\_halves} & half of one recording & half & recording (participant $\times$ session or program) & one first and one second half per recording \\
+\texttt{sb\_native}, \texttt{em\_expertise}, \texttt{em\_correctrect}, \texttt{em\_correctveh} & participant & participant (all trials together) & all participants & the number of participants per class; all trials of a participant share one label \\
+\texttt{sb\_compr} & passage (its pages share one outcome) & passage & participant & each participant's passage-label counts; pages of a passage share one label \\
+\texttt{em\_correct} & answer to one program & trial & program & the number of correct and incorrect answers within each program \\
+\bottomrule
+\end{tabular}

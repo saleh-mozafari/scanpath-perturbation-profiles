@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+% Draft of the open-data manuscript. Neutral layout; reformat to the target journal's template at submission.
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}\pdfgentounicode=1
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{changepage}
+\usepackage[section]{placeins}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lineno}
+\linenumbers
+\graphicspath{{figs/}}
+
+\newcommand{\dz}{d_z}
+\newcommand{\AUC}{\mathrm{AUC}}
+\newcommand{\pkg}{\texttt{scanpathdecomp}}
+\newcommand{\Cs}{C}
+% Text that depends on analyses still to be (re-)run under the final pipeline. Must be empty before submission.
+\newcommand{\pending}[1]{\textcolor{red}{[#1]}}
+\newcommand{\extralength}{0cm}
+
+\title{Characterizing Scanpath Decoding Pipelines with Perturbation Profiles}
+\author{Saleh Mozaffari$^{1}$ \and Abolfazl Nadi$^{2,*}$}
+\date{\small $^{1}$Department of Bioinformatics, Kish International Campus, University of Tehran (Tehran office), Tehran 1417955391, Iran; saleh.mozafari@ut.ac.ir\\
+$^{2}$Department of Computer Science, School of Mathematics, Statistics and Computer Science, College of Science, University of Tehran, Tehran 1417614411, Iran; a.nadi@ut.ac.ir\\
+$^{*}$Corresponding author.\\[1ex] Draft of \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent When a scanpath descriptor supports a classification, it is rarely clear what the classification rests on. We propose perturbation profiles. Five transformations each target one stated property of every scanpath (fixation order, the coupling of durations to positions, the duration distribution, orientation and handedness, and fine spatial structure) while preserving a listed set of invariants. The classifier is refit, and the change in participant-held-out AUC is the pipeline's sensitivity to that property. Intervals come from a participant bootstrap that refits the classifier; in simulations they were conservative (99.7\% coverage; standard errors about 1.8 times the empirical spread). We profiled nine descriptors on thirteen binary problems from three public datasets, with a within-fold AUC and class-balanced folds and a stated rule for which sensitivities to interpret. Of 565 intervals, 95 excluded zero; 80 were robust to the pooled AUC, 20 fold partitions and longer runs (36 of them within $\pm 0.05$ AUC), and 45 also held with boosted trees. Most came from GazeBase (322 participants). Permuting fixation order raised the AUC of a descriptor based on mean saccade amplitude, because permuted amplitude has as its expectation the mean pairwise distance, a measure of spread. A ``comprehension'' contrast pooled over two programs was a contrast between their layouts: it vanished among trials of the same program, and synthetic gaze drawn from the layout alone reproduced the program contrast beneath it. For native versus non-native readers, spatial jitter at the scale of text lines reduced recurrence's discrimination. A Python package is released.
+\end{abstract}
+
+\noindent\textbf{Keywords:} eye tracking; scanpath analysis; perturbation analysis; surrogate data; recurrence quantification analysis; cross-validation; reading; program comprehension
+
+\section{Introduction}
+\input{sec_intro_a}
+
+The transformations preserve more than their names suggest: permuting durations within a trial preserves every marginal duration statistic, and a rigid rotation preserves every fixation's eccentricity. We state each transformation's invariants exactly, demonstrate the two blind spots with planted counterexamples, and add a second duration transformation that destroys the marginal. The three datasets were chosen to differ in task, stimulus and label: SB-SAT \citep{ahn2020towards} (95 participants reading SAT passages, with native language and comprehension), EMIP \citep{bednarik2020emip} (programmers reading two short programs, with self-rated expertise and answer correctness; we use its corrected fixation release, \citealp{almadi2021emiptoolkit}) and GazeBase \citep{griffith2021gazebase} (322 participants on reading, video and game tasks). Their labels vary within participants, between participants or both, and their difficulty runs from ceiling to none. Among the descriptors is a graph representation of a trial on the regions of its stimulus, the Fixation Adjacency Graph, which we generalize from stimulus-specific segmentations to any set of areas of interest and to a stimulus-independent lattice. All data are public, and every analysis can be re-run from the released code.
+
+\input{sec_method}
+
+\subsection{Software}
+The method is implemented in \pkg\ (Python, MIT licence). A trial is a small dataclass; a descriptor is any function from a trial to a dictionary of features; \texttt{decompose()} runs the observed evaluation, the transformations with a user-chosen jitter grid, and the refit bootstrap, and returns a table of AUCs, a table of sensitivities (with exact invariances and variance fallbacks flagged), and the per-draw bootstrap AUCs from which every interval can be re-derived. The evaluation is leave-one-participant-out by default; an option selects $k$-fold cross-validation over participants, which we use here (ten folds) because the largest problems have 322 participants and the refit bootstrap repeats the evaluation several thousand times per profile. Options select the pooled or within-fold AUC, class-balanced folds, the seed of the fold partition, and the duration donor pool; the package warns when a pooled AUC is requested for a label that is constant within participants. Built-in descriptors cover recurrence quantification, directed transition graphs on a grid, classic statistics, and the undirected Fixation Adjacency Graph on a stimulus mask, on any set of anchor points, or on a lattice. With $k$ folds, participants are put in a seeded random order of their sorted identifiers and dealt to the folds in turn, so the assignment, and with it every reported number, is the same on any machine. The results reported here come from version 0.6.2 of the package, with scikit-learn 1.7.2. Further versions and the learner settings are in the methods appendix of Online Resource 1. Analysis code and manuscript text were drafted and revised with the assistance of a large language model (Claude, Anthropic) under the authors' direction; the authors reviewed and tested the code and checked the reported statistics against the stored outputs.
+
+Generative artificial intelligence was used during this work for language editing and, under author direction, to verify reported statistics against the stored analysis outputs; the tool is named in the Acknowledgments. The authors reviewed all content and take full responsibility for it.
+
+\input{sec_sim}
+
+\section{Datasets, Problems and Descriptors}\label{sec:data}
+All three datasets are public and de-identified, and none was collected for this study. Table~\ref{tab:problems} lists the problems. Sample sizes were fixed by the datasets rather than chosen for this study; Section~\ref{sec:sim} reports, at these sizes, the interval widths and the sensitivities that were reliably detected.
+
+\paragraph{SB-SAT.} The Stony Brook SAT reading dataset \citep{ahn2020towards} contains EyeLink 1000 recordings (1000 Hz) of 95 participants reading four SAT passages of five to six pages each, followed by comprehension questions, with fixations exported by the manufacturer's software in screen pixels. A trial is the first visit to a reading page; revisits after paging back are excluded, as are fixations outside the $1024\times768$ px display (0.6\%). Trials need at least five fixations. Two problems were formed: native versus non-native English readers (a between-participant label; 66 and 29 participants), and pages of passages answered with accuracy $\geq 0.8$ versus $\leq 0.4$ (a mixed label; intermediate passages are excluded). The text's line spacing, measured as the spacing of word-level fixation medians on the stimulus pages, is 63 px.
+
+\paragraph{EMIP.} The Eye Movements in Programming dataset \citep{bednarik2020emip} contains SMI recordings of 216 programmers, each reading two short programs (Rectangle and Vehicle) and answering a comprehension question after each. We use its corrected fixation release \citep{almadi2021emiptoolkit}, which contains fixations already assigned to code tokens and corrected for vertical drift for 159 participants, and the dataset's metadata for expertise and answers. The release keeps only fixations that fall on a token, which removes off-code looking before any descriptor is computed. A trial is one program reading. Six problems were formed: Rectangle versus Vehicle for the 112 participants with both programs in the same stimulus version (within); the first versus second fixation-count half of each reading (within); high versus low or no self-rated programming expertise, excluding ``medium'' (between); correct versus incorrect answer, pooled over both programs (mixed); and the same restricted to the Rectangle program and to the Vehicle program (between, one trial per participant). Pooled over the programs, the correctness label is confounded with the program: among the retained trials, 92 of 133 Rectangle answers were correct and 106 of 138 Vehicle answers incorrect. We report that problem deliberately and compare it with the two within-program versions. Line spacing of the code is 37 px.
+
+\paragraph{GazeBase.} GazeBase \citep{griffith2021gazebase} contains 1000 Hz monocular EyeLink recordings in degrees of visual angle on a $1680\times1050$ px display at 550 mm ($\pm 23.3^\circ\times\pm 15.1^\circ$). We took all 322 participants of Round~1, both sessions, and the tasks reading (TEX), video 1 and 2 (VD1, VD2; consecutive 60-s segments of one film trailer) and the gaze-driven game (BLG). Fixations were detected with I-VT on the raw samples (5-sample moving average; $30^\circ/\mathrm{s}$; minimum 80 ms) for every task, because the dataset's own fixation labels are absent for the video and game tasks. Five problems were formed: TEX versus VD1, VD1 versus BLG, VD1 versus VD2, the first versus second fixation-count half of each VD1 recording, and reading in session 1 versus session 2 (different passages). There are no text lines in most of these tasks, so the reference scale is $2^\circ$.
+
+\paragraph{A common spatial scale.} Every spatial constant is expressed in units of the reference scale $u$ (one text line in SB-SAT and EMIP; $2^\circ$ in GazeBase): recurrence radius $0.5u$ and $1u$, directed-graph tile $1u\times1u$, jitter $0.25u$, $0.5u$, $u$ and $2u$, and lattice anchors $2u$ apart. A sensitivity to jitter at $0.25u$ in SB-SAT is therefore a sensitivity to structure finer than a quarter of a line, about one word in height.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{The thirteen problems. Label level: whether the label varies within participants, is constant within each participant, or both. Trials and participants after exclusions.}
+\label{tab:problems}
+\resizebox{\linewidth}{!}{\input{tab_problems}}
+\end{table}
+
+\subsection{Descriptors}\label{sec:desc}
+Nine descriptors were profiled (ten variants, counting the two recurrence radii): two baselines that read one property by construction, two descriptors of durations and amplitudes, recurrence, and four graph descriptors.
+
+\paragraph{Count (baseline).} The number of fixations. It is invariant to every transformation, so its profile is identically zero and its AUC measures how much of a problem is count.
+
+\paragraph{Dispersion (baseline).} The SD of $x$, the SD of $y$, and the mean pairwise distance between fixations. All three are translation-invariant: the baseline reads the extent and shape of the spread, not where on the screen it lies. It is invariant to order and to both duration transformations; the two SDs read extent along the screen axes and therefore change under rotation when the spread is elongated, whereas the mean pairwise distance is rotation-invariant.
+
+\paragraph{Classic.} Mean fixation duration and mean saccade amplitude (Euclidean distance between consecutive fixations).
+
+\paragraph{Duration trend.} The correlation of fixation duration with sequence position, and the mean duration. It reads how durations evolve over a trial, so it is sensitive to order and to both duration transformations, and it serves as a positive control for the two duration transformations on real data.
+
+\paragraph{Recurrence quantification} \citep{anderson2013recurrence}: recurrence rate, determinism, laminarity, and centre of recurrence mass, at radius $0.5u$ and $1u$. Recurrence rate is order-invariant; determinism and laminarity, which count diagonal and vertical line structures in the recurrence plot, are not.
+
+\paragraph{Directed transition graph.} Fixations are assigned to $1u\times1u$ tiles, consecutive repeats are collapsed, and a directed edge $i\to j$ counts immediate transitions; four features summarize the matrix: edge reciprocity, revisit tendency ($1 - |V|/|s|$), directed transition entropy, and degree asymmetry. Tiles are unbounded, so the descriptor remains defined after rotation.
+
+\paragraph{Fixation Adjacency Graph.} The undirected graph treats a trial's gaze as a graph on regions of the stimulus (Figure~\ref{fig:fag}). Anchor points are joined by a Delaunay triangulation \citep{lee1980two}; each triangle accumulates the dwell of the fixations inside it; attended triangles are the vertices, two are adjacent when they share a vertex of the triangulation, and edges are weighted by combined dwell. Five features summarize the graph: attention centrality (the weight of the largest component's maximum spanning tree relative to the total), the maximum edge betweenness \citep{brandes2001faster}, a compactness index based on the Estrada index \citep{estrada2000characterization}, a squareness index of each component's extent, and the number of components. The graph was introduced on segmentations of diagram stimuli \citep{mozaffari2020classification, mozaffari2021quantifying}; here we build it on two kinds of anchor that any stimulus provides. In the \emph{AOI graph} (EMIP only) the anchors are the centres of the code tokens' areas of interest, so the graph lives on the program's own lexical layout. In the \emph{lattice graph} (every problem) the anchors are the nodes of a square lattice $2u$ apart, which covers the disc swept by the display under rotation, so the rotation transformation never moves a fixation off the support. The AOI graph's support is bounded; it is rotated about the centre of its anchors, and the fixations a transformation moves off the support are dropped. Because that loss can differ between classes, we also profile a \emph{padded AOI graph}, in which lattice anchors $2u$ apart surround the token anchors out to the disc swept by the display under rotation (anchors closer than one spacing to a token anchor are left out), so that the triangulation inside the code is essentially unchanged and no transformation moves a fixation off the support (Section~\ref{sec:support}).
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig_fag_construction}
+\caption{The Fixation Adjacency Graph on a \emph{synthetic} trial (red; marker size is duration) over the token areas of interest of the EMIP Rectangle program; no participant's gaze and no stimulus image are shown. (a) Token AOIs and their centres; (b) the Delaunay triangulation of the centres; (c) attended triangles coloured by dwell, with the maximum spanning tree of the graph (black); (d) the same trial on the stimulus-independent lattice graph, anchors $2u$ apart.}
+\label{fig:fag}
+\end{figure}
+
+\input{sec_results}
+
+\section{Discussion}
+\subsection{What the Profile Adds}
+A classification accuracy says that a descriptor works; a perturbation profile says how much of that discrimination survives when each property of the scanpath is destroyed and the pipeline is refit. On thirteen problems from three public datasets it did three things an accuracy cannot. It explained a counter-intuitive result, a descriptor that discriminates \emph{better} without the information its name says it uses, and the Proposition of Section~\ref{sec:transf} turns that explanation into an exact statement (Section~\ref{sec:against}). Together with a within-program permutation scheme, a same-program AUC and a synthetic-gaze control, it showed that a ``comprehension'' contrast, and the program contrast beneath it, were contrasts between stimulus layouts (Section~\ref{sec:confound}). And it located, for each pipeline, the property and the spatial scale its discrimination depends on: durations and their evolution for the tasks and segments of GazeBase, structure coarser than about $2^\circ$ for early versus late viewing, and structure at the scale of one to two text lines for recurrence on first- versus second-language reading (Sections~\ref{sec:native} and~\ref{sec:gb}). In each case the baselines were essential. Count and dispersion read one property by construction, and comparing a structured descriptor's AUC and profile with theirs is what turns a sensitivity into an interpretation.
+
+The checks around the profile mattered as much as the profile. A stated selection rule kept 6 of 95 intervals that excluded zero out of the interpretation; the pooled metric, the fold partitions and the longer runs removed 7 more; the padded graph removed the two sensitivities of the AOI graph, which were partly differential loss of support; and a second learner confirmed 45 of the remaining 80. The analysis also returned a negative result about one of our own descriptors. On these data the Fixation Adjacency Graph on stimulus anchors supported no claim that a simpler descriptor or the layout itself did not explain (Section~\ref{sec:graph}).
+
+\subsection{Practical Guidance}\label{sec:guide}
+The results translate into a short procedure for anyone profiling a descriptor.
+\begin{enumerate}
+\item \emph{Profile two baselines alongside every descriptor.} Fixation count and spatial dispersion each read one property by construction. A structured descriptor whose AUC the dispersion baseline matches, or whose profile mirrors the baseline's, is not shown to use anything beyond spread (Sections~\ref{sec:against} and~\ref{sec:confound}). Where stimuli differ between classes, add a stimulus-identity baseline.
+\item \emph{Use a within-fold AUC with class-balanced folds, and read every AUC against its permutation distribution.} Under a between-participant label the pooled cross-validated AUC sits below 0.5 when there is no signal (0.43 on average in the simulations with unbalanced folds), and perturbations can change this bias. Permute labels in the way the design assigned them; where a stimulus is associated with the label, permute within stimuli, and expect the permutation mean to move away from 0.5 (Sections~\ref{sec:fold} and~\ref{sec:confound}).
+\item \emph{State the rule by which cells are interpreted, and fix it before the final analysis.} Require that the observed AUC exceeds its null and that the sensitivity interval excludes zero, then check each such cell against a second metric, several fold partitions and a longer run, and report all of them in a ledger (Section~\ref{sec:ledger}).
+\item \emph{Look for a mechanism behind a negative sensitivity before reading it.} A transformation can make information accessible that the observed features express poorly, as order permutation does for saccade amplitude, or it can merely change an evaluation's bias; the three permutation distributions of Section~\ref{sec:stat} tell these apart. Of the 19 robust negative sensitivities here, only the two with a known mechanism held under a second learner (Sections~\ref{sec:against} and~\ref{sec:learners}).
+\item \emph{Treat a rotation sensitivity of a spread descriptor as a warning about stimulus layout.} Then compute the AUC over pairs of trials that share a stimulus, and profile synthetic gaze drawn from each stimulus's layout: a descriptor that separates the synthetic trials is reading the stimulus (Section~\ref{sec:confound}).
+\item \emph{For a descriptor with bounded support, report what the transformations leave on the support.} Report retention by transformation and class, profile a retention-only descriptor, and repeat the cells you interpret on a padded version of the descriptor that loses nothing (Section~\ref{sec:graph}).
+\item \emph{Do not read a zero sensitivity as evidence that a property is unused.} After refitting, a learner can move to redundant information, and a wide interval covers zero for lack of precision. Use an explicit equivalence margin, and treat exact invariances as checks of the implementation, not results.
+\item \emph{Start with a linear learner and repeat the cells you interpret with a nonlinear one.} Count a sensitivity as holding under both only if both intervals exclude zero; a kept sign is weaker evidence. Expect small negative sensitivities at ceiling to be specific to the linear learner (Section~\ref{sec:learners}).
+\item \emph{Plan for conservative intervals, and for the sample size they require.} Under no signal, the mean width was 0.12 at 95 participants $\times$ 20 trials, about 0.35 at 60 $\times$ 4 and 112 $\times$ 2, and 0.46 at 65 $\times$ 2 (Table~\ref{tab:cal}). At these sizes, simulated sensitivities of 0.12--0.14 had intervals excluding zero in only 8--60\% of datasets, while sensitivities of 0.30 did in all. With 322 participants the mean width on the real problems was 0.05, and nine tenths of all robust cells came from that dataset.
+\item \emph{Use modest Monte Carlo settings for screening and larger ones for the cells you report.} $R = 6$ and $B = 60$ gave conservative intervals in the simulations and reached the same conclusion as $R = 20$ and $B = 300$ under three seeds in 82 of 89 cells; the exceptions were cells whose intervals ended near zero (Section~\ref{sec:conv}). Report the seeds.
+\item \emph{State spatial scales in a unit the stimulus defines.} Expressing radii, tiles and jitter in line spacings made a quarter-line or two-line sensitivity comparable across datasets with different displays.
+\end{enumerate}
+
+\subsection{Relation to Prior Work}
+Perturbing scanpaths to learn what a measure responds to is an established paradigm. \citet{dewhurst2012multimatch} validated MultiMatch with synthetic spatial-noise and order manipulations, and \citet{fahimi2021metrics} applied a systematic family of perturbations, including spatial noise, ordinal shifts and reversals, to a catalogue of scanpath \emph{similarity} metrics in order to characterize their robustness; our jitter transformation is operationally close to their spatial noise, and their ordinal manipulations are specific order disruptions. Shuffled-order baselines are standard in recurrence analysis \citep{anderson2013recurrence, anderson2015comparison}, static-versus-sequential comparisons appear in task decoding \citep{greene2012reconsidering}, and \citet{meghanathan2026temporal} used ordered versus shuffled gaze sequences directly. In the broader literature on predictive importance, retraining after removing information follows \citet{hooker2019benchmark}, and \citet{williamson2023general} give a general framework for the importance of a variable group as the loss in population predictiveness when the model is refit without it, with asymptotically valid inference. A sensitivity $\Cs_\tau$ is of that kind, with a transformed scanpath taking the place of a removed feature.
+
+What the profile adds operationally is the combination, specialized to scanpath decoding: (i) transformations defined on whole scanpaths rather than on features, each with a stated list of invariants, so that the transformed data remain scanpaths and the properties a transformation leaves intact are known; (ii) exact invariance checks that follow from those lists and catch implementation errors; (iii) participant-aware evaluation, with participant-held-out folds, permutation schemes that respect how labels were assigned \citep{ojala2010permutation}, and a within-fold AUC that guards against evaluation bias; (iv) a refit participant bootstrap whose coverage was checked by simulation, including weak, negative and unbalanced designs, and found conservative; and (v) a reusable package with the baselines and support diagnostics described above. We do not claim priority for any individual transformation, and unlike \citet{williamson2023general} we offer no asymptotic theory for the interval; its support is the simulation evidence of Section~\ref{sec:sim}.
+
+\subsection{Limitations}
+The transformations are not orthogonal and do not partition the signal: jitter alters saccade amplitudes as well as recurrence, and the order transformation preserves recurrence rate but not determinism or laminarity. Rotation preserves eccentricity and any rotationally invariant location contrast. The jitter results are properties of the sweep grid, not spatial scales of behaviour. The framework is binary. The intervals are unadjusted and exploratory. Their coverage was checked on one generative family, mostly with 40 datasets per cell, and at 322 participants only for the no-signal and signal-elsewhere designs; per-contrast error rates are bounded above by 7--15\% rather than shown to be 5\%. Pooled over contrasts, the intervals were conservative in every design tested (single contrasts covered in 92.5\% to 100\% of 40 datasets), with standard errors nearly twice the empirical spread, so the analysis has less power than its nominal level suggests and an interval that covers zero is weak evidence of absence; we did not attempt to recalibrate them. The behaviour of the ``negligible'' call near its margin was not re-examined. The selection rule was fixed before this version of the analysis but after earlier versions of it had been seen, so it is a guard against selective reading, not a preregistration. The duration donor pool is built once on the other participants of the full dataset, not within training folds; a training-fold pool changed the interpreted duration sensitivities by at most 0.007. With 322 participants, sensitivities of a few thousandths of an AUC are resolved, and statistical robustness there should not be mistaken for practical importance. The second learner was run at the screening settings, and at the long settings only for the 21 cells of Table~\ref{tab:robust}. The problems are demonstrations: they discriminate specific recordings, groups and stimuli, and license no general claim about reading, programming or video viewing. Between-participant labels (native language, expertise) cannot separate the named factor from any other difference between the groups. The EMIP release analysed keeps only fixations on code tokens, so every EMIP profile describes on-code looking, and expertise in EMIP is self-rated. Finally, a profile characterizes a descriptor, learner and evaluation on a task; it does not by itself say what participants were doing.
+
+\section{Conclusions}
+Before choosing a scanpath descriptor for a classification problem, one can ask how much of its discrimination survives when each property of the scanpath is destroyed and the classifier is refit. Five transformations with stated invariants answer that question for any descriptor, with built-in invariance checks. On three public datasets the answer explained exactly why order permutation can improve a classifier, showed that a comprehension contrast was a contrast between stimulus layouts, and identified, among 565 intervals, the 80 sensitivities that survive a change of evaluation metric, of fold partition and of Monte Carlo settings, and the 45 that also survive a change of learner. The tool is released so that the question, and these checks, can be applied routinely.
+
+\section*{Data Availability}
+All data analysed are public: SB-SAT at \url{https://github.com/ahnchive/SB-SAT}, EMIP at \url{https://osf.io/53kts} with its corrected release at \url{https://github.com/nalmadi/EMIP-Toolkit}, and GazeBase at its figshare record \citep{griffith2021gazebase}. The package \pkg\ (MIT licence), the scripts that download and preprocess each dataset, every analysis script, every aggregate output and the manuscript source are available at \pending{public repository and Zenodo DOI}.
+
+\section*{Ethics Statement}
+This study is a secondary analysis of publicly available, de-identified eye-tracking datasets, each collected under its authors' own ethics and consent procedures as described in the cited publications. No new data were collected and no participant was contacted. \pending{Exemption reference from the University of Tehran research ethics committee.}
+
+\section*{Author Contributions}
+Conceptualization, S.M.\ and A.N.; methodology, S.M.; software, S.M.; formal analysis, S.M.; writing---original draft preparation, S.M.; writing---review and editing, A.N.; supervision, A.N.
+
+\section*{Funding}
+This research received no external funding.
+
+\section*{Acknowledgments}
+The authors thank the creators of SB-SAT, EMIP and its corrected release, and GazeBase for making their data public. The authors used Claude (Anthropic), a large language model, to edit language, to draft and revise analysis code and manuscript text under the authors' direction, and to check reported statistics against stored outputs. The authors reviewed and tested the code, verified the analyses and the text, and take full responsibility for the content of this publication.
+
+\section*{Conflicts of Interest}
+The authors declare no conflicts of interest.
+
+\bibliographystyle{apalike}
+\bibliography{references}
+\end{document}

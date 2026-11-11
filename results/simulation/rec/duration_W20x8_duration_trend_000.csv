@@ -1,0 +1,12 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,mode,design,size,descriptor,dataset,auc_obs,n_trials,n_reps,excludes0
+order,1.0,0.587,0.41300000000000003,0.2624416027760721,0.563558397223928,0.07681550878771834,7.593992203373436e-08,60,refit,0.8260000000000001,False,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,True
+duration_coupling,1.0,0.5798125000000001,0.42018749999999994,0.23058929165548372,0.6097857083445162,0.09673377976761031,1.40069958992325e-05,60,refit,0.8403749999999999,False,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,True
+duration_marginal,1.0,0.516,0.484,0.30834908044419646,0.6596509195558036,0.08961781609989976,6.637697768075627e-08,60,refit,0.968,False,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,True
+rotation,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False
+resolution(s=5),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False
+resolution(s=10),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False
+resolution(s=20),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False
+resolution(s=40),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False
+resolution(s=80),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False
+resolution(s=160),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False
+resolution(s=320),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,duration,W20x8,duration_trend,0,1.0,160,5,False

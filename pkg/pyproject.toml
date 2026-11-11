@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scanpathdecomp"
+version = "0.6.2"
+description = "Perturbation profiles for trial-level scanpath descriptors."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Saleh Mozaffari"}, {name = "Abolfazl Nadi"}]
+dependencies = ["numpy>=1.23", "pandas>=1.5", "scipy>=1.9", "scikit-learn>=1.2", "matplotlib>=3.6"]
+
+
+[project.optional-dependencies]
+test = ["pytest"]
+fag = ["scikit-image>=0.20", "networkx>=3.0"]   # undirected Fixation Adjacency Graph descriptor
+
+[tool.setuptools.packages.find]
+include = ["scanpathdecomp*"]
+
+[tool.mypy]
+# Type-checks the package only. The example drivers and the analysis scripts in the sibling repositories
+# are untyped by design -- they are one-shot pipelines, not a library -- and checking them would produce
+# noise rather than findings. `python3 -m mypy scanpathdecomp` must report no issues.
+files = ["scanpathdecomp"]
+ignore_missing_imports = true      # numpy, pandas, sklearn, skimage and networkx ship no stubs here

@@ -1,0 +1,5 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,mode,design,size,descriptor,dataset,auc_obs,n_trials,n_reps,excludes0
+order,0.5854166666666667,0.4934201388888889,0.09199652777777778,,,,,0,none,1.077032520325203,False,False,False,ref,none,W60x4,rqa,37,0.5854166666666667,240,20,False
+rotation,0.5854166666666667,0.5854166666666668,-1.1102230246251565e-16,,,,,0,none,-1.299773297122134e-15,True,False,False,ref,none,W60x4,rqa,37,0.5854166666666667,240,20,False
+resolution(s=40),0.5854166666666667,0.5110937499999999,0.0743229166666668,,,,,0,none,0.8701219512195134,False,False,False,ref,none,W60x4,rqa,37,0.5854166666666667,240,20,False
+resolution(s=160),0.5854166666666667,0.4908159722222222,0.09460069444444452,,,,,0,none,1.1075203252032526,False,False,False,ref,none,W60x4,rqa,37,0.5854166666666667,240,20,False

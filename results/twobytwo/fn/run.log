@@ -1,0 +1,15 @@
+14 pending
+sb_compr count: AUC 0.541 [nan, nan], p = 0.876, null mean 0.553
+sb_native count: AUC 0.612 [nan, nan], p = 0.025, null mean 0.499
+sb_compr classic: AUC 0.601 [nan, nan], p = 0.886, null mean 0.615
+sb_native classic: AUC 0.682 [nan, nan], p = 0.005, null mean 0.495
+sb_compr dispersion: AUC 0.424 [nan, nan], p = 0.915, null mean 0.468
+sb_native dispersion: AUC 0.537 [nan, nan], p = 0.239, null mean 0.501
+sb_compr directed: AUC 0.530 [nan, nan], p = 0.687, null mean 0.537
+sb_native directed: AUC 0.607 [nan, nan], p = 0.035, null mean 0.499
+sb_compr rqa_half: AUC 0.502 [nan, nan], p = 0.861, null mean 0.522
+sb_native rqa_half: AUC 0.620 [nan, nan], p = 0.010, null mean 0.499
+sb_compr rqa_line: AUC 0.547 [nan, nan], p = 0.577, null mean 0.550
+sb_native rqa_line: AUC 0.674 [nan, nan], p = 0.005, null mean 0.497
+sb_native fag_lattice: AUC 0.593 [nan, nan], p = 0.055, null mean 0.502
+sb_compr fag_lattice: AUC 0.498 [nan, nan], p = 0.861, null mean 0.517

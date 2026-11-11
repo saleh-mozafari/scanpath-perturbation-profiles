@@ -1,0 +1,12 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,mode,design,size,descriptor,dataset,auc_obs,n_trials,n_reps,excludes0
+order,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,anchoring,W20x8,position,10,1.0,160,5,False
+duration_coupling,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,anchoring,W20x8,position,10,1.0,160,5,False
+duration_marginal,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,anchoring,W20x8,position,10,1.0,160,5,False
+rotation,1.0,0.48609375000000005,0.51390625,0.4338660218255074,0.5939464781744926,0.04083685110943501,2.5737156608171575e-36,60,refit,1.0278125,False,False,False,rec,anchoring,W20x8,position,10,1.0,160,5,True
+resolution(s=5),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,anchoring,W20x8,position,10,1.0,160,5,False
+resolution(s=10),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,anchoring,W20x8,position,10,1.0,160,5,False
+resolution(s=20),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,anchoring,W20x8,position,10,1.0,160,5,False
+resolution(s=40),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,anchoring,W20x8,position,10,1.0,160,5,False
+resolution(s=80),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,anchoring,W20x8,position,10,1.0,160,5,False
+resolution(s=160),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,anchoring,W20x8,position,10,1.0,160,5,False
+resolution(s=320),1.0,0.9999687500000001,3.124999999992717e-05,-0.00015643733579276338,0.00021893733579261772,9.575884479218906e-05,0.7441666647762799,60,refit,6.249999999985434e-05,False,False,False,rec,anchoring,W20x8,position,10,1.0,160,5,False

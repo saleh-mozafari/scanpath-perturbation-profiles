@@ -1,0 +1,11 @@
+\begin{tabular}{lllll}
+\toprule
+Problem & Contrast & AOI graph & AOI graph, support-matched & Support-only descriptor \\
+\midrule
+\texttt{em\_halves} (AUC 0.682; 0.773) & rotation & \textbf{+0.098 [+0.031, +0.166]} & +0.032 [$-$0.059, +0.124] (99\%) & +0.054 [$-$0.001, +0.110] \\
+\texttt{em\_halves} (AUC 0.682; 0.773) & jitter 0.25$u$ & +0.036 [$-$0.029, +0.102] & +0.019 [$-$0.048, +0.086] (100\%) & \textbf{+0.048 [+0.018, +0.078]} \\
+\texttt{em\_halves} (AUC 0.682; 0.773) & jitter 0.5$u$ & +0.023 [$-$0.025, +0.071] & +0.035 [$-$0.029, +0.099] (100\%) & \textbf{+0.112 [+0.065, +0.159]} \\
+\texttt{em\_halves} (AUC 0.682; 0.773) & jitter 1$u$ & +0.045 [$-$0.032, +0.123] & +0.057 [$-$0.027, +0.141] (89\%) & \textbf{+0.119 [+0.059, +0.178]} \\
+\texttt{em\_halves} (AUC 0.682; 0.773) & jitter 2$u$ & \textbf{+0.113 [+0.014, +0.212]} & \textbf{+0.121 [+0.035, +0.207]} (31\%) & \textbf{+0.123 [+0.054, +0.192]} \\
+\bottomrule
+\end{tabular}

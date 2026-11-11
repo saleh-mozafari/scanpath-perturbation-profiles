@@ -1,0 +1,63 @@
+\begin{longtable}{lllrrrrr}
+\caption{Extended simulation designs ($R = 6$, $B = 60$; 40 datasets per row). Target: the reference value (60 datasets with disjoint seeds, $R = 20$) with its Monte Carlo standard error, or zero by exchangeability. Unequal: one to four trials per class and participant (W) or per participant (B); 1:3 and 16:49: class imbalance; heterogeneous: participant offset SD 100 px and participant-specific scaling.}\\
+\toprule
+Design & Size & Contrast & Target $\theta$ (SE) & Coverage & Excl.\ 0 & Width & Obs.\ AUC \\
+\midrule
+\endfirsthead
+\toprule
+Design & Size & Contrast & Target $\theta$ (SE) & Coverage & Excl.\ 0 & Width & Obs.\ AUC \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+order hides spread (classic) & 65 $\times$ 2 (B) & duration marginal & +0.006 (0.009) & 0.975 & 0.025 & 0.397 & 0.520 \\
+order hides spread (classic) & 65 $\times$ 2 (B) & order & $-$0.499 (0.010) & 1.000 & 1.000 & 0.405 & 0.520 \\
+order hides spread (classic) & 60 $\times$ 4 (W) & duration marginal & $-$0.001 (0.005) & 1.000 & 0.000 & 0.296 & 0.509 \\
+order hides spread (classic) & 60 $\times$ 4 (W) & order & $-$0.497 (0.008) & 1.000 & 1.000 & 0.292 & 0.509 \\
+no signal (rqa) & 65 $\times$ 2, heterog.\ (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.429 & 0.493 \\
+no signal (rqa) & 65 $\times$ 2, heterog.\ (B) & jitter 160 px & +0.001 (0.012) & 1.000 & 0.000 & 0.498 & 0.493 \\
+no signal (rqa) & 65 $\times$ 2, heterog.\ (B) & jitter 40 px & +0.005 (0.011) & 1.000 & 0.000 & 0.451 & 0.493 \\
+no signal (rqa) & 65, 16:49 (B) & order & 0 (by arg.) & 0.925 & 0.075 & 0.502 & 0.474 \\
+no signal (rqa) & 65, 16:49 (B) & jitter 160 px & +0.005 (0.012) & 1.000 & 0.000 & 0.605 & 0.474 \\
+no signal (rqa) & 65, 16:49 (B) & jitter 40 px & +0.005 (0.012) & 1.000 & 0.000 & 0.573 & 0.474 \\
+no signal (rqa) & 65, unequal (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.389 & 0.508 \\
+no signal (rqa) & 65, unequal (B) & jitter 160 px & +0.014 (0.008) & 1.000 & 0.000 & 0.455 & 0.508 \\
+no signal (rqa) & 65, unequal (B) & jitter 40 px & +0.016 (0.008) & 1.000 & 0.000 & 0.446 & 0.508 \\
+no signal (rqa) & 60 $\times$ 4, heterog.\ (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.377 & 0.508 \\
+no signal (rqa) & 60 $\times$ 4, heterog.\ (W) & jitter 160 px & $-$0.009 (0.006) & 1.000 & 0.000 & 0.375 & 0.508 \\
+no signal (rqa) & 60 $\times$ 4, heterog.\ (W) & jitter 40 px & $-$0.007 (0.006) & 1.000 & 0.000 & 0.362 & 0.508 \\
+no signal (rqa) & 60, 1:3 (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.393 & 0.510 \\
+no signal (rqa) & 60, 1:3 (W) & jitter 160 px & +0.010 (0.009) & 1.000 & 0.000 & 0.445 & 0.510 \\
+no signal (rqa) & 60, 1:3 (W) & jitter 40 px & +0.007 (0.009) & 1.000 & 0.000 & 0.432 & 0.510 \\
+no signal (rqa) & 60, unequal (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.295 & 0.490 \\
+no signal (rqa) & 60, unequal (W) & jitter 160 px & +0.012 (0.006) & 1.000 & 0.000 & 0.349 & 0.490 \\
+no signal (rqa) & 60, unequal (W) & jitter 40 px & +0.008 (0.006) & 1.000 & 0.000 & 0.334 & 0.490 \\
+weak order contrast (directed) & 65 $\times$ 2 (B) & order & +0.118 (0.008) & 1.000 & 0.075 & 0.424 & 0.632 \\
+weak order contrast (directed) & 65 $\times$ 2 (B) & jitter 40 px & +0.015 (0.007) & 1.000 & 0.000 & 0.425 & 0.632 \\
+weak order contrast (directed) & 65 $\times$ 2 (B) & rotation & +0.000 (0.006) & 1.000 & 0.000 & 0.373 & 0.632 \\
+weak order contrast (directed) & 60 $\times$ 4 (W) & order & +0.128 (0.007) & 0.975 & 0.350 & 0.307 & 0.639 \\
+weak order contrast (directed) & 60 $\times$ 4 (W) & jitter 40 px & +0.015 (0.005) & 1.000 & 0.000 & 0.298 & 0.639 \\
+weak order contrast (directed) & 60 $\times$ 4 (W) & rotation & $-$0.004 (0.005) & 1.000 & 0.000 & 0.265 & 0.639 \\
+weak spread contrast (rqa) & 65 $\times$ 2, heterog.\ (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.282 & 0.671 \\
+weak spread contrast (rqa) & 65 $\times$ 2, heterog.\ (B) & jitter 40 px & +0.127 (0.007) & 1.000 & 0.125 & 0.412 & 0.671 \\
+weak spread contrast (rqa) & 65, 16:49 (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.172 & 0.871 \\
+weak spread contrast (rqa) & 65, 16:49 (B) & jitter 40 px & +0.315 (0.005) & 1.000 & 0.975 & 0.394 & 0.871 \\
+weak spread contrast (rqa) & 65, unequal (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.106 & 0.878 \\
+weak spread contrast (rqa) & 65, unequal (B) & jitter 40 px & +0.310 (0.004) & 1.000 & 1.000 & 0.302 & 0.878 \\
+weak spread contrast (rqa) & 65 $\times$ 2 (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.133 & 0.882 \\
+weak spread contrast (rqa) & 65 $\times$ 2 (B) & jitter 40 px & +0.306 (0.004) & 1.000 & 1.000 & 0.334 & 0.882 \\
+weak spread contrast (rqa) & 60 $\times$ 4, heterog.\ (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.152 & 0.693 \\
+weak spread contrast (rqa) & 60 $\times$ 4, heterog.\ (W) & jitter 40 px & +0.143 (0.003) & 1.000 & 0.600 & 0.250 & 0.693 \\
+weak spread contrast (rqa) & 60, 1:3 (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.093 & 0.872 \\
+weak spread contrast (rqa) & 60, 1:3 (W) & jitter 40 px & +0.302 (0.004) & 0.975 & 1.000 & 0.290 & 0.872 \\
+weak spread contrast (rqa) & 60, unequal (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.059 & 0.881 \\
+weak spread contrast (rqa) & 60, unequal (W) & jitter 40 px & +0.300 (0.003) & 1.000 & 1.000 & 0.209 & 0.881 \\
+weak spread contrast (rqa) & 60 $\times$ 4 (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.070 & 0.874 \\
+weak spread contrast (rqa) & 60 $\times$ 4 (W) & jitter 40 px & +0.302 (0.003) & 1.000 & 1.000 & 0.247 & 0.874 \\
+signal elsewhere, no offset (rqa) & 65 $\times$ 2, heterog.\ (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.299 & 0.637 \\
+signal elsewhere, no offset (rqa) & 65, 16:49 (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.213 & 0.824 \\
+signal elsewhere, no offset (rqa) & 65, unequal (B) & order & 0 (by arg.) & 1.000 & 0.000 & 0.126 & 0.836 \\
+signal elsewhere, no offset (rqa) & 60 $\times$ 4, heterog.\ (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.177 & 0.660 \\
+signal elsewhere, no offset (rqa) & 60, 1:3 (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.113 & 0.833 \\
+signal elsewhere, no offset (rqa) & 60, unequal (W) & order & 0 (by arg.) & 1.000 & 0.000 & 0.072 & 0.841 \\
+\end{longtable}

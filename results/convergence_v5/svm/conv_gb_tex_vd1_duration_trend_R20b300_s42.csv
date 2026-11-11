@@ -1,0 +1,2 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,problem,descriptor,learner,n_reps,n_boot_req,seed,line_px
+duration_marginal,0.9570877531340405,0.4882654291224687,0.4688223240115718,0.43535701292364987,0.5022876350994937,0.017074138310164248,5.570312371757867e-166,300,refit,1.0256724683544303,False,False,False,gb_tex_vd1,duration_trend,svm,20,300,42,2.0

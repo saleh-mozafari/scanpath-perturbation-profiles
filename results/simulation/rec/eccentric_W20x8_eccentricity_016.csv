@@ -1,0 +1,12 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,mode,design,size,descriptor,dataset,auc_obs,n_trials,n_reps,excludes0
+order,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+duration_coupling,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+duration_marginal,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+rotation,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+resolution(s=5),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+resolution(s=10),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+resolution(s=20),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+resolution(s=40),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+resolution(s=80),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+resolution(s=160),1.0,0.9826874999999999,0.017312500000000064,-0.004202401951096696,0.038827401951096824,0.010976990791375898,0.11475810225823492,60,refit,0.03462500000000013,False,False,False,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,False
+resolution(s=320),1.0,0.7265625,0.2734375,0.20291682617683116,0.34395817382316884,0.035979935624065734,2.967681036245841e-14,60,refit,0.546875,False,False,False,rec,eccentric,W20x8,eccentricity,16,1.0,160,5,True

@@ -1,0 +1,12 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,mode,design,size,descriptor,dataset,auc_obs,n_trials,n_reps,excludes0
+order,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,scale20,W20x8,rqa,9,1.0,160,5,False
+duration_coupling,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,False
+duration_marginal,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,False
+rotation,1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,False
+resolution(s=5),1.0,1.0,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,False,False,True,rec,scale20,W20x8,rqa,9,1.0,160,5,False
+resolution(s=10),1.0,1.0,0.0,-0.00047444045991039847,0.00047444045991039847,0.0002420614591379584,1.0,60,refit,0.0,False,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,False
+resolution(s=20),1.0,0.99875,0.0012499999999999734,-0.003912769529076819,0.0064127695290767655,0.0026340660862636694,0.635106685655992,60,refit,0.0024999999999999467,False,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,False
+resolution(s=40),1.0,0.9303125,0.06968750000000001,0.009154993275750416,0.1302200067242496,0.030883932002168164,0.02404357417966644,60,refit,0.13937500000000003,False,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,True
+resolution(s=80),1.0,0.70865625,0.29134375,0.20159198729718336,0.38109551270281666,0.04579171566470238,1.9866665180239775e-10,60,refit,0.5826875,False,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,True
+resolution(s=160),1.0,0.52446875,0.47553124999999996,0.3534040825792,0.5976584174208,0.06230977929632652,2.316288208474169e-14,60,refit,0.9510624999999999,False,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,True
+resolution(s=320),1.0,0.44076562499999994,0.5592343750000001,0.4865360761086003,0.6319326738913998,0.03709096882214275,2.2816801697381408e-51,60,refit,1.1184687500000001,False,False,False,rec,scale20,W20x8,rqa,9,1.0,160,5,True

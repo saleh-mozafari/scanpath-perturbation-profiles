@@ -1,0 +1,26 @@
+# Lint configuration for this repository.
+#
+# The rules that are switched off below are switched off because the code uses the style they object to
+# deliberately and consistently, not because the findings were inconvenient:
+#
+#   E401/E402  compact grouped imports, and imports after a warnings filter or a sys.path insertion
+#   E701/E702/E703  one-line guards and semicolon-separated statements, the house style of the analysis
+#                   scripts; rewriting ~860 of them would churn audited code for no gain
+#   E11x/E2xx/E3xx  whitespace and blank-line conventions: `x=1`, `f(a,b)`, no blank line
+#                   before a nested def. Thousands of findings, all style.
+#   E731       small lambdas assigned to names (coordinate mappings, mostly)
+#   E741       'l' and 'I' as local names in a few plotting loops
+#
+# E127/E128 (continuation-line indentation) are ignored in .flake8; ruff does not implement them.
+#
+# Everything in the F ("pyflakes") family stays on: those are real errors -- undefined names, unused
+# imports, redefinitions -- and the repository is clean of them except where noted in per-file-ignores.
+line-length = 180
+# 'display' is provided by IPython inside the percent-format notebooks; it is not a missing import.
+builtins = ["display", "get_ipython"]
+extend-exclude = ["*.ipynb"]      # notebooks are generated or jupytext-paired; the .py side is what is linted
+
+[lint]
+select = ["E", "F", "W"]
+ignore = ["E114", "E117", "E201", "E225", "E226", "E227", "E228", "E231", "E301", "E302", "E305", "E306", "E401", "E402", "E701", "E702", "E703", "E731", "E741", "W391"]
+

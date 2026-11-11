@@ -1,0 +1,37 @@
+# raw third-party downloads: fetched from their sources, not redistributed
+data/raw/
+# caches, scratch and superseded runs
+results/cache*/
+results/all/
+results/final/
+results/profiles/
+results/observed_auc/
+results/observed_auc_final/
+results/simulation_container/
+results/convergence_container/
+results/*.log
+_to_delete/
+__pycache__/
+*.egg-info/
+# LaTeX build files
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.out
+manuscript/*.fls
+manuscript/*.fdb_latexmk
+manuscript/*.bbl
+manuscript/*.blg
+
+# internal planning notes (kept outside version control)
+DATASET_PLAN.md
+manuscript/*.bcf
+manuscript/*.run.xml
+results/simulation/*.log
+results/*/*.log
+manuscript/figs/*.png
+results/fold_view/
+build_arxiv/
+build_arxiv.zip
+results/view_v5/
+*.tgz
+results/summaries/*.log

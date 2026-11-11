@@ -1,0 +1,2 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,problem,descriptor,learner,n_reps,n_boot_req,seed,line_px
+rotation,0.9570063694267515,0.8161624203821656,0.14084394904458597,0.07593800229738489,0.20574989579178704,0.033115278952653614,2.107928006851628e-05,300,refit,0.3081881533101045,False,False,False,em_program,dispersion,svm,20,300,42,37.0

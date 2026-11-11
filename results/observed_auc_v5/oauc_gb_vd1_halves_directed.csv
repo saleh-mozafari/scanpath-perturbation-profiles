@@ -1,0 +1,2 @@
+problem,descriptor,auc,ci_lo,ci_hi,p_perm,p_lower,perm_mean,perm_sd,n_boot,n_perm,n_trials,cv_folds,metric,stratify,perm_scheme
+gb_vd1_halves,directed,0.8054484088717454,0.7831136188789561,0.8268259504937254,0.000999000999000999,1.0,0.4986897661523626,0.023155251332974625,200,1000,1288,10,fold,True,half labels swapped within each recording

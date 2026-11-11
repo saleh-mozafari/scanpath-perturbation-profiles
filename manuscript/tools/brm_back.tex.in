@@ -1,0 +1,34 @@
+
+\section*{Acknowledgments}
+The authors thank the creators of SB-SAT, EMIP and its corrected release, and GazeBase for making their data public. The authors used Claude (Anthropic), a large language model, to edit language, to draft and revise analysis code and manuscript text under the authors' direction, and to check reported statistics against stored outputs. The authors reviewed and tested the code, verified the analyses and the text, and take full responsibility for the content of this publication.
+
+\section*{Declarations}
+\subsection*{Funding}
+No funding was received for conducting this study.
+
+\subsection*{Conflicts of interest/Competing interests}
+The authors have no competing interests to declare that are relevant to the content of this article.
+
+\subsection*{Ethics approval}
+Not applicable. This study is a secondary analysis of publicly available, de-identified eye-tracking datasets (SB-SAT, EMIP and GazeBase), each collected under its authors' own ethics approval and consent procedures as described in the cited publications. No new data were collected and no participant was contacted.
+
+\subsection*{Consent to participate}
+Not applicable. Informed consent was obtained by the original studies.
+
+\subsection*{Consent for publication}
+Not applicable. No identifying information about any participant is reported.
+
+\subsection*{Availability of data and materials}
+All data analysed are public: SB-SAT at \url{https://github.com/ahnchive/SB-SAT}, EMIP at \url{https://osf.io/53kts} with its corrected release at \url{https://github.com/nalmadi/EMIP-Toolkit}, and GazeBase at its figshare record \citep{griffith2021gazebase}. The GazeBase fixation table derived for this study, every aggregate output reported (profiles, observed AUCs, simulation, convergence and learner-comparison results) and the manuscript source are available at \repository.
+
+\subsection*{Code availability}
+The Python package \pkg\ (MIT licence), the scripts that download, preprocess and analyse each dataset, and the simulation code are available at \repository.
+
+\subsection*{Authors' contributions}
+Conceptualization: Saleh Mozaffari, Abolfazl Nadi; Methodology: Saleh Mozaffari; Software: Saleh Mozaffari; Formal analysis: Saleh Mozaffari; Writing -- original draft: Saleh Mozaffari; Writing -- review and editing: Abolfazl Nadi; Supervision: Abolfazl Nadi.
+
+\section*{Open Practices Statement}
+None of the analyses reported here was preregistered. The three datasets analysed are publicly available from their original sources (see Availability of data and materials). The analysis code, the package implementing the method, the simulation code, the derived GazeBase fixation table and every aggregate result reported in this article are available at \repository.
+
+\printbibliography
+\end{document}

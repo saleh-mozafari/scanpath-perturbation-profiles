@@ -1,0 +1,9 @@
+component,auc_observed,auc_null,contribution,ci_lo,ci_hi,se,p_boot,n_boot,ci_method,share,exact_invariant,variance_fallback,degenerate,problem,descriptor,n_reps,seed,n_trials_all,n_participants,line_px,cv_folds,metric,stratify,donor,cv_seed,scale_lines
+order,0.5450503452798889,0.532031621722413,0.013018723557475909,-0.03958326656860408,0.0656207136835559,0.026837750064326524,0.6276125216750577,60,refit,0.288981659887247,False,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,
+duration_coupling,0.5450503452798889,0.5319737535846096,0.013076591695279305,-0.026767888095182935,0.052921071485741544,0.020328816219623593,0.5200593200513848,60,refit,0.290266181402984,False,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,
+duration_marginal,0.5450503452798889,0.506862196674511,0.03818814860537789,-0.04318003414519357,0.11955633135594936,0.041514378954373196,0.35763670900654454,60,refit,0.8476771569257113,False,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,
+rotation,0.5450503452798889,0.5450503452798889,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,
+resolution(s=0.5),0.5450503452798889,0.5450503452798889,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,0.25
+resolution(s=1),0.5450503452798889,0.5450503452798889,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,0.5
+resolution(s=2),0.5450503452798889,0.5450503452798889,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,1.0
+resolution(s=4),0.5450503452798889,0.5450503452798889,0.0,0.0,0.0,0.0,1.0,60,refit,0.0,True,False,False,gb_tex_s1s2,duration_trend,6,42,644,322,2.0,10,pooled,True,loo,0,2.0

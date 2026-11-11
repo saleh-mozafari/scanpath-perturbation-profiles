@@ -1,0 +1,121 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=2cm,landscape]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}\pdfgentounicode=1
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newcommand{\Cs}{C}
+\renewcommand{\thetable}{S\arabic{table}}
+\title{Online Resource 1\\[0.5ex]\large Characterizing Scanpath Decoding Pipelines with Perturbation Profiles\\[0.5ex]\normalsize Saleh Mozaffari and Abolfazl Nadi}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\noindent Tables S1--S13: every profile of the primary analysis (within-fold AUC, class-balanced participant folds); $R = 6$ replicates, $B = 60$ refit-bootstrap draws, seed 42; linear SVM, ten-fold participant-held-out cross-validation; duration-marginal donor pool of the other participants' durations. $u$ is the reference scale (one text line in SB-SAT and EMIP, $2^\circ$ in GazeBase). The same profiles with the pooled AUC are in the released outputs.
+\input{supp_profiles}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Observed pooled AUC (all out-of-fold decision values ranked together; class-balanced participant folds), with the permutation $p$-value in brackets (200 permutations under the schemes of Table 2 of the article).}
+\resizebox{\linewidth}{!}{\input{tab_auc_pooled}}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Range, over descriptors, of the mean of the permutation distribution of the observed AUC, under the within-fold AUC (1000 permutations) and the pooled AUC (200 permutations), both with class-balanced folds. On \texttt{em\_correct} labels are permuted within programs and on \texttt{sb\_compr} between the passages of a participant, so stimulus structure that survives the permutation raises the mean for descriptors that read it.}
+\input{supp_null_means}
+\end{table}
+
+{\scriptsize\setlength{\tabcolsep}{2.5pt}\setlength{\LTcapwidth}{\linewidth}
+\input{supp_ledger}
+}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Bootstrap standard error against the empirical spread of the estimate in the calibration campaign ($R = 6$, $B = 60$; 40 datasets per design and size). SE ratio: mean bootstrap SE divided by the SD of the estimate across datasets, per contrast; median and range over the contrasts of the cell. Coverage of the target by normal intervals at nominal 80\%, 90\% and 95\%.}
+\input{supp_se}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Corrected refit bootstrap (Equation 1) against the direct refit bootstrap, which averages all $R = 6$ transformed replicates inside each of the $B = 60$ draws, on the same 200 datasets per cell. Coverage of the target, mean width, and the share of intervals excluding zero.}
+\input{supp_direct}
+\end{table}
+
+{\scriptsize\setlength{\LTcapwidth}{\linewidth}
+\input{supp_ext}
+}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Controls for the EMIP program and correctness contrasts (within-fold AUC). Program contrast: AUC on real gaze and on synthetic gaze, in which every trial is replaced by the same number of fixations drawn uniformly over the bounding box of its program's code tokens. Correctness, both programs: AUC over all correct--incorrect pairs of a test fold, the mean of its permutation distribution when labels are permuted within programs, and the AUC over pairs from the same program and test fold with a refit participant-bootstrap interval (200 draws) and a one-sided permutation $p$-value (1000 permutations within programs). Descriptors with no spatial features are not affected by the synthetic control and are marked with a dash.}
+\input{supp_controls}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{EMIP expertise: AUC of each of the ten test folds and of the corresponding training set, for three descriptors (linear SVM; class-balanced folds).}
+\input{supp_expertise}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Share of dwell time on the AOI triangulation, negative / positive class, for every EMIP problem and transformation (mean over trials of the mean over $R = 6$ replicates). Fixations off the triangulation are dropped by the AOI graph. On the lattice graph and on the padded AOI graph the share was at least 0.998 in every cell.}
+\resizebox{\linewidth}{!}{\input{supp_retention}}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{AOI-graph sensitivities on the two halves of a program reading under the default transformations and under support-matched transformations (redrawn until the trial keeps at least its observed dwell share minus 0.02; in brackets, the share of draws for which this succeeded within 200 tries), and the sensitivities of a descriptor made only of the fixation and dwell shares on the support. In the first column: observed AUC of the AOI graph and of the support-only descriptor. Bold: interval excludes zero.}
+\resizebox{\linewidth}{!}{\input{supp_matched}}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Duration-marginal transformation of the classic descriptor with the leave-one-participant-out donor pool of the main analysis and with training-fold pools (each fold's trials draw only from that fold's training participants; mean and SD over $R = 6$ replicates; within-fold AUC, class-balanced folds).}
+\input{supp_donor}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Three permutation distributions for negative sensitivities (within-fold AUC, class-balanced folds; 1000 permutations under the schemes of Table 2 of the article; $R = 6$ transformed replicates). The observed AUC, the transformed AUC and their contrast are each compared with their own permutation distribution; for the contrast the lower-tail probability is given. The first four rows are the order cells of the classic descriptor discussed in Section 5.4 of the article; the last is the unexplained cell of Section 5.11.}
+\input{supp_nulls}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Calibration at the largest analysed sample size: 322 participants $\times$ 4 trials with the label varying within participants ($R = 6$, $B = 60$; 40 datasets per row; targets from 60 further datasets with $R = 20$, or zero by exchangeability for the order contrast). Coverage of the target by the 95\% interval; exclusions of zero where the target is zero by argument; mean width; mean bootstrap SE over the empirical SD of the estimate; coverage of the nominal 80\% interval.}
+\input{supp_big}
+\end{table}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Gradient-boosted trees on the cells of Table 7 of the article at the screening settings and at the long settings (seed 42). Bold: interval excludes zero.}
+\input{supp_trees_long}
+\end{table}
+
+\clearpage
+\section*{Methods appendix}
+\subsection*{A1. Feature definitions}
+Let a trial have fixations $(x_i, y_i, d_i)$, $i = 1, \dots, N$, in sequence order, with $d_i$ the duration.
+
+\emph{Count.} $N$.
+
+\emph{Dispersion.} The population SDs of $x$ and of $y$, and the mean pairwise distance $\binom{N}{2}^{-1} \sum_{i<j} \lVert p_i - p_j \rVert$, $p_i = (x_i, y_i)$.
+
+\emph{Classic.} Mean duration $N^{-1} \sum_i d_i$ and mean saccade amplitude $(N - 1)^{-1} \sum_{i<N} \lVert p_{i+1} - p_i \rVert$.
+
+\emph{Duration trend.} The Pearson correlation of $d_i$ with $i$, and the mean duration; trials with fewer than five fixations are excluded.
+
+\emph{Recurrence} \citep{anderson2013recurrence}. Fixations $i < j$ recur if $\lVert p_i - p_j \rVert < r$; $n_r$ is the number of recurrent pairs, and the recurrence plot is the upper triangle of the $N \times N$ recurrence matrix. Recurrence rate: $100 \cdot 2 n_r / (N(N-1))$. Determinism: $100$ times the share of recurrent pairs that lie on diagonal lines of length at least 2. Laminarity: $100$ times the share that lie on vertical lines of length at least 2. Centre of recurrence mass: $100 \cdot \overline{(j - i)} / (N - 1)$, the mean over recurrent pairs. A trial without recurrent pairs has all four equal to zero; trials with fewer than five fixations are excluded. Radii: $r = 0.5u$ and $1u$.
+
+\emph{Directed transition graph.} Each fixation is assigned to the tile $(\lfloor x/u \rfloor, \lfloor y/u \rfloor)$; consecutive repeats are collapsed to a sequence $s$ over the visited tiles $V$; $A_{ab}$ counts immediate transitions $a \to b$, and $E = \{(a, b): a \neq b, A_{ab} > 0\}$. Reciprocity: the share of edges in $E$ whose reverse is in $E$. Revisit tendency: $1 - |V|/|s|$. Transition entropy: $-\sum_{ab} P_{ab} \log_2 P_{ab}$ with $P = A / \sum A$. Degree asymmetry: the mean over tiles of $|\mathrm{out}_a - \mathrm{in}_a| / (\mathrm{out}_a + \mathrm{in}_a)$, with out- and in-strengths the row and column sums of $A$.
+
+\emph{Fixation Adjacency Graph.} Anchors are triangulated (Delaunay). The dwell of a triangle is the summed duration of the fixations inside it; fixations in no triangle are dropped. Vertices are the triangles with positive dwell; two are adjacent if they share an anchor; the weight of an edge is the summed dwell of its two triangles. Attention centrality: the largest, over connected components, of the weight of the component's maximum spanning tree, divided by the total edge weight (set to 0.25 for a graph without edges). Betweenness: the maximum edge betweenness centrality \citep{brandes2001faster}. Compactness: the Estrada index $\sum_k e^{\lambda_k}$ of the adjacency matrix \citep{estrada2000characterization}, averaged over components. Squareness: for each component, $\Delta_x \Delta_y / \max(\Delta_x, \Delta_y)^2$ with $\Delta_x, \Delta_y$ the extents of its triangle centroids (zero for a single triangle), averaged over components. The fifth feature is the number of components. Lattice anchors are $2u$ apart and cover the disc swept by the display under rotation; AOI anchors are the token centres of the program; the padded AOI graph adds lattice anchors $2u$ apart around them, leaving out those closer than $2u$ to a token anchor.
+
+\subsection*{A2. Class sizes and fixation counts}
+\begin{table}[H]\centering\scriptsize
+\caption{Trials and participants per class, and fixations per trial, for every problem (after the exclusions of Section 4 of the article). Class labels are those of the released loaders.}
+\input{supp_descriptives}
+\end{table}
+
+\subsection*{A3. Software and settings}
+Python 3.13.16; NumPy 2.5.3; SciPy 1.18.1; pandas 3.0.5; scikit-learn 1.7.2; XGBoost 3.2.0; NetworkX 3.7; package \texttt{scanpathdecomp} 0.6.2. Linear SVM: \texttt{LinearSVC} (liblinear; squared hinge loss, L2 penalty, $C = 1$, at most 20\,000 iterations, random state 0) on features standardized with training-fold means and SDs. Gradient-boosted trees: \texttt{XGBClassifier} with 200 trees of depth 3, learning rate 0.05, row subsampling 0.8, histogram tree method, logistic loss, random state 0. Folds: ten participant folds, participants dealt within class in a seeded order (seed 0 for the reported profiles; seeds 0--19 for the partition check).
+\bibliographystyle{apalike}
+\bibliography{references}
+\end{document}

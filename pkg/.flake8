@@ -1,0 +1,8 @@
+# flake8 reads neither pyproject.toml nor ruff.toml, so the same policy is repeated here.
+# See ruff.toml for why each code is ignored.
+[flake8]
+max-line-length = 180
+extend-ignore = E114,E117,E127,E128,E201,E225,E226,E227,E228,E231,E301,E302,E305,E306,E401,E402,E701,E702,E703,E731,E741,W391,W503,W504
+exclude = .git,__pycache__,build,dist,*.egg-info,.ipynb_checkpoints
+builtins = display,get_ipython
+

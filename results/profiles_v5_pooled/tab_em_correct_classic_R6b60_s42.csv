@@ -1,0 +1,10 @@
+condition,auc_mean,auc_sd,n_reps,n_trials,problem,descriptor,n_boot,seed,n_trials_all,n_participants,line_px,cv_folds,metric,stratify,donor,cv_seed
+observed,0.4967632214175993,0.0,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+order,0.6133238241533173,0.010092968835470941,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+duration_coupling,0.4967632214175994,6.080941944488117e-17,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+duration_marginal,0.44314607563455494,0.05618401323404737,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+rotation,0.4967632214175994,6.080941944488117e-17,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+resolution(s=9.25),0.49813473776607414,0.0022238535984477953,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+resolution(s=18.5),0.4977781435154707,0.001360168104765916,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+resolution(s=37),0.49810730743910464,0.005769583108440153,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0
+resolution(s=74),0.4979884426889036,0.01103507655751465,6,271,em_correct,classic,60,42,271,159,37.0,10,pooled,True,loo,0

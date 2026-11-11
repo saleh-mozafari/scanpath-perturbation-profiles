@@ -1,0 +1,10 @@
+condition,auc_mean,auc_sd,n_reps,n_trials,problem,descriptor,n_boot,seed,n_trials_all,n_participants,line_px,cv_folds,metric,stratify,donor,cv_seed
+observed,0.5564687168610817,0.0,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+order,0.5564687168610817,0.0,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+duration_coupling,0.5490014139271827,0.004331684682687126,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+duration_marginal,0.5476758571933545,0.009283314607715037,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+rotation,0.5388829975256274,0.05304179562691333,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+resolution(s=9.25),0.5212972781901732,0.05072340602231889,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+resolution(s=18.5),0.5282785436550018,0.08941379491345128,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+resolution(s=37),0.5174531636620713,0.04993938311095885,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0
+resolution(s=74),0.4696447507953341,0.09870188367476422,6,133,em_correctrect,fag_lattice,60,42,133,133,37.0,10,pooled,True,loo,0

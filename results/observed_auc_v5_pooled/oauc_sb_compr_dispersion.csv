@@ -1,0 +1,2 @@
+problem,descriptor,auc,ci_lo,ci_hi,p_perm,p_lower,perm_mean,perm_sd,n_boot,n_perm,n_trials,cv_folds,metric,stratify,perm_scheme
+sb_compr,dispersion,0.40203477370377794,,,0.9900497512437811,0.014925373134328358,0.458237612297532,0.024894350837265725,0,200,1363,10,pooled,True,passage labels shuffled within participant (a passage's pages share its label)

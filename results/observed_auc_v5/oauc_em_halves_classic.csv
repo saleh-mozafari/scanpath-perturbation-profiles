@@ -1,0 +1,2 @@
+problem,descriptor,auc,ci_lo,ci_hi,p_perm,p_lower,perm_mean,perm_sd,n_boot,n_perm,n_trials,cv_folds,metric,stratify,perm_scheme
+em_halves,classic,0.7756767515923567,0.7377493463605065,0.8183524654387774,0.000999000999000999,1.0,0.49846496815286623,0.03286375216250097,200,1000,448,10,fold,True,half labels swapped within each recording

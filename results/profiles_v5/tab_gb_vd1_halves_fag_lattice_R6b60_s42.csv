@@ -1,0 +1,10 @@
+condition,auc_mean,auc_sd,n_reps,n_trials,problem,descriptor,n_boot,seed,n_trials_all,n_participants,line_px,cv_folds,metric,stratify,donor,cv_seed
+observed,0.7409594985535197,0.0,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+order,0.7409594985535196,1.2161883888976234e-16,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+duration_coupling,0.7440895210543234,0.0021274909323660955,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+duration_marginal,0.7405456444873031,0.0010371953264081324,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+rotation,0.7181854709096753,0.00688362950772527,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+resolution(s=0.5),0.737230793956927,0.0054865212479805235,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+resolution(s=1),0.7302796528447444,0.006353636859948418,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+resolution(s=2),0.7043113146898103,0.010377955713094068,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0
+resolution(s=4),0.6524991963998714,0.01727249674314564,6,1288,gb_vd1_halves,fag_lattice,60,42,1288,322,2.0,10,fold,True,loo,0

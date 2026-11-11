@@ -1,0 +1,27 @@
+\begin{tabular}{lllrrrc}
+\toprule
+Problem & Descriptor & Transformation & AUC & Sensitivity [95\% interval] & Normalized & Trees \\
+\midrule
+\texttt{gb\_tex\_vd1} & Dur.\ trend & duration marginal & 0.957 & +0.473 [+0.442, +0.503] & $+1.03$ & $\checkmark$ \\
+\texttt{gb\_vd1\_blg} & Classic & order & 0.886 & $-$0.114 [$-$0.137, $-$0.091] & $-0.30$ & $\checkmark$ \\
+\texttt{gb\_vd1\_blg} & Dur.\ trend & duration marginal & 0.752 & +0.252 [+0.199, +0.304] & $+1.01$ & $\checkmark$ \\
+\texttt{gb\_vd1\_vd2} & Classic & duration marginal & 0.640 & +0.124 [+0.099, +0.150] & $+0.88$ & $\checkmark$ \\
+\texttt{gb\_vd1\_vd2} & Dispersion & jitter $2u$ & 0.707 & +0.116 [+0.085, +0.148] & $+0.56$ & $\checkmark$ \\
+\texttt{gb\_vd1\_vd2} & Dur.\ trend & duration coupling & 0.790 & +0.158 [+0.131, +0.185] & $+0.54$ & $\checkmark$ \\
+\texttt{gb\_vd1\_vd2} & Dur.\ trend & duration marginal & 0.790 & +0.286 [+0.227, +0.345] & $+0.98$ & $\checkmark$ \\
+\texttt{gb\_vd1\_vd2} & Dur.\ trend & order & 0.790 & +0.157 [+0.127, +0.187] & $+0.54$ & $\checkmark$ \\
+\texttt{gb\_vd1\_vd2} & RQA $0.5u$ & jitter $2u$ & 0.677 & +0.108 [+0.071, +0.145] & $+0.61$ & $\checkmark$ \\
+\texttt{gb\_vd1\_vd2} & RQA $1u$ & jitter $2u$ & 0.719 & +0.118 [+0.080, +0.156] & $+0.54$ & $\checkmark$ \\
+\texttt{gb\_vd1\_halves} & Directed & jitter $2u$ & 0.805 & +0.191 [+0.161, +0.220] & $+0.62$ & $\checkmark$ \\
+\texttt{gb\_vd1\_halves} & Dispersion & jitter $2u$ & 0.924 & +0.130 [+0.111, +0.150] & $+0.31$ & $\checkmark$ \\
+\texttt{gb\_vd1\_halves} & Dispersion & rotation & 0.924 & +0.249 [+0.224, +0.275] & $+0.59$ & $\checkmark$ \\
+\texttt{gb\_vd1\_halves} & RQA $0.5u$ & jitter $2u$ & 0.743 & +0.143 [+0.097, +0.189] & $+0.59$ & $\checkmark$ \\
+\texttt{gb\_vd1\_halves} & RQA $1u$ & jitter $2u$ & 0.823 & +0.182 [+0.151, +0.214] & $+0.56$ & $\checkmark$ \\
+\texttt{sb\_native} & RQA $0.5u$ & jitter $2u$ & 0.614 & +0.088 [+0.012, +0.164] & $+0.79$ & -- \\
+\texttt{sb\_native} & RQA $1u$ & jitter $2u$ & 0.669 & +0.140 [+0.045, +0.235] & $+0.85$ & $\checkmark$ \\
+\texttt{sb\_native} & RQA $1u$ & jitter $1u$ & 0.669 & +0.086 [+0.016, +0.157] & $+0.52$ & -- \\
+\texttt{em\_program} & Dispersion & rotation & 0.957 & +0.139 [+0.078, +0.199] & $+0.30$ & $\checkmark$ \\
+\texttt{em\_halves} & Classic & order & 0.776 & +0.172 [+0.112, +0.231] & $+0.62$ & $\checkmark$ \\
+\texttt{em\_halves} & RQA $0.5u$ & jitter $1u$ & 0.613 & $-$0.085 [$-$0.152, $-$0.018] & $-0.77$ & -- \\
+\bottomrule
+\end{tabular}
