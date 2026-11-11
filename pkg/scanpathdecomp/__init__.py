@@ -22,4 +22,4 @@ from . import descriptors
 __all__ = ["Trial", "order", "duration_coupling", "duration_marginal", "duration_marginal_loo", "rotation",
            "resolution", "NULL_REGISTRY", "duration", "anchoring",
            "decompose", "DecompositionResult", "default_nulls", "descriptors"]
-__version__ = "0.6.2"
+__version__ = "0.6.3"

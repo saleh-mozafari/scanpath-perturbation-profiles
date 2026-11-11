@@ -18,10 +18,6 @@ import shutil
 import subprocess
 import sys
 
-DATA = (r"The package \pkg\ (MIT licence), the scripts that download and preprocess each dataset, every analysis "
-        r"script, every aggregate output and the manuscript source are available from the corresponding author and "
-        r"will be deposited in a public repository with a DOI on publication.")
-
 
 def build_main(main_tex: str, supp_tex: str) -> str:
     """Turn main.tex into the arXiv main file.
@@ -40,8 +36,6 @@ def build_main(main_tex: str, supp_tex: str) -> str:
     s = s.replace("\\usepackage[hidelinks]{hyperref}", "\\usepackage{pdflscape}\n\\usepackage{longtable}\n\\usepackage{float}\n\\usepackage{xurl}\n"
                   "\\usepackage[hidelinks]{hyperref}")
     s = s.replace("$^{*}$Corresponding author.\\\\[1ex] Draft of \\today}", "$^{*}$Corresponding author.}")
-    s = re.sub(r"The package \\pkg\\ \(MIT licence\).*?\\pending\{public repository and Zenodo DOI\}\.",
-               lambda m: DATA, s, flags=re.S)
     s = re.sub(r" \\pending\{Exemption reference[^}]*\}", "", s)
     if "\\pending{" in s:
         raise SystemExit("a placeholder is left in the arXiv text")

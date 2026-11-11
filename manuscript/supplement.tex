@@ -115,7 +115,7 @@ Let a trial have fixations $(x_i, y_i, d_i)$, $i = 1, \dots, N$, in sequence ord
 \end{table}
 
 \subsection*{A3. Software and settings}
-Python 3.13.16; NumPy 2.5.3; SciPy 1.18.1; pandas 3.0.5; scikit-learn 1.7.2; XGBoost 3.2.0; NetworkX 3.7; package \texttt{scanpathdecomp} 0.6.2. Linear SVM: \texttt{LinearSVC} (liblinear; squared hinge loss, L2 penalty, $C = 1$, at most 20\,000 iterations, random state 0) on features standardized with training-fold means and SDs. Gradient-boosted trees: \texttt{XGBClassifier} with 200 trees of depth 3, learning rate 0.05, row subsampling 0.8, histogram tree method, logistic loss, random state 0. Folds: ten participant folds, participants dealt within class in a seeded order (seed 0 for the reported profiles; seeds 0--19 for the partition check).
+Python 3.13.16; NumPy 2.5.3; SciPy 1.18.1; pandas 3.0.5; scikit-learn 1.7.2; XGBoost 3.2.0; NetworkX 3.7; package \texttt{scanpathdecomp} 0.6.3. Linear SVM: \texttt{LinearSVC} (liblinear; squared hinge loss, L2 penalty, $C = 1$, at most 20\,000 iterations, random state 0) on features standardized with training-fold means and SDs. Gradient-boosted trees: \texttt{XGBClassifier} with 200 trees of depth 3, learning rate 0.05, row subsampling 0.8, histogram tree method, logistic loss, random state 0. Folds: ten participant folds, participants dealt within class in a seeded order (seed 0 for the reported profiles; seeds 0--19 for the partition check).
 \bibliographystyle{apalike}
 \bibliography{references}
 \end{document}

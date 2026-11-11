@@ -18,7 +18,8 @@ import os
 import re
 import sys
 
-REPOSITORY = r"\textcolor{red}{[repository URL and archive DOI]}"
+REPOSITORY = (r"\url{https://github.com/saleh-mozafari/scanpath-perturbation-profiles}, archived on Zenodo at "
+              r"\url{https://doi.org/10.5281/zenodo.24132704}")
 PHONE = r"\textcolor{red}{[telephone]}"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
