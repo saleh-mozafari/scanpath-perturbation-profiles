@@ -50,8 +50,10 @@ The version used for the article is archived on Zenodo:
 
 The code is released under the MIT licence (`LICENSE`). The derived GazeBase table is a derivative of GazeBase v2.0
 (Griffith, Lohr, Abdulin & Komogortsev, 2021, *Scientific Data*, 8, 184), which is distributed under CC BY 4.0;
-the derived table is shared under the same licence. SB-SAT and EMIP are not redistributed; obtain them from their
-authors' releases under their terms.
+the derived table is shared under the same licence. EMIP (OSF, osf.io/53kts) is also
+distributed under CC BY 4.0. SB-SAT (github.com/ahnchive/SB-SAT) and the corrected EMIP release
+(github.com/nalmadi/EMIP-Toolkit) state no licence; neither is redistributed here, and their authors ask that
+Ahn et al. (2020) and Al Madi et al. (2021) be cited when they are used.
 
 ## Reproduce
 
