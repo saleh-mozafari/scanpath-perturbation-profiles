@@ -20,7 +20,7 @@ import sys
 
 REPOSITORY = (r"\url{https://github.com/saleh-mozafari/scanpath-perturbation-profiles}, archived on Zenodo at "
               r"\url{https://doi.org/10.5281/zenodo.24132704}")
-PHONE = r"\textcolor{red}{[telephone]}"
+PHONE = r"+98 21 66412556"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
