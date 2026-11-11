@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Perturbation profiles for scanpath decoding pipelines: code, package and results"
+type: software
+version: 0.6.3
+doi: 10.5281/zenodo.24132704
+date-released: 2026-11-11
+license: MIT
+repository-code: "https://github.com/saleh-mozafari/scanpath-perturbation-profiles"
+authors:
+  - family-names: Mozaffari
+    given-names: Saleh
+    orcid: "https://orcid.org/0009-0008-4259-7454"
+    affiliation: University of Tehran
+  - family-names: Nadi
+    given-names: Abolfazl
+    orcid: "https://orcid.org/0000-0002-1156-7710"
+    affiliation: University of Tehran
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24132704
+    description: "Version 0.6.3, the version used for the article"
+  - type: doi
+    value: 10.5281/zenodo.24132703
+    description: "All versions"

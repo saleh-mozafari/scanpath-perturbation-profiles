@@ -1,5 +1,7 @@
 # scanpath-perturbation-profiles
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24132704.svg)](https://doi.org/10.5281/zenodo.24132704)
+
 Code, package and aggregate results for "Characterizing Scanpath Decoding Pipelines with Perturbation Profiles"
 (Mozaffari & Nadi). A perturbation profile reports how much of a scanpath descriptor's participant-held-out
 discrimination is lost when one property of every scanpath (order, duration coupling, duration distribution,
@@ -34,6 +36,15 @@ redistributed here.
 | `results/twobytwo/` | permutation means by metric and fold assignment |
 | `results/summaries/` | evidence ledger, controls and simulation summaries |
 | `manuscript/` | `main.tex`, `supplement.tex`, figures, and the scripts that write the tables and figures |
+
+## Citation
+
+The version used for the article is archived on Zenodo:
+
+> Mozaffari, S., & Nadi, A. (2026). *Perturbation profiles for scanpath decoding pipelines: code, package and results*
+> (Version 0.6.3) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.24132704
+
+`CITATION.cff` holds the same reference for GitHub's "Cite this repository" button.
 
 ## Licences
 
